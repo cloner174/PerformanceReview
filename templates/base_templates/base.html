@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Performance Review{% endblock %}</title>
+    <!-- Include CSS files -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!---->
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Performance Review System</h1>
+        <!-- Navigation Menu -->
+        <nav>
+            <ul>
+                {% block nav %}
+                <!-- Navigation links will go here -->
+                {% endblock %}
+            </ul>
+        </nav>
+    </header>
+    <!---->
+    <main>
+        {% block content %}
+        <!-- Page content -->
+        {% endblock %}
+    </main>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; {{ current_year }} Performance Review System</p>
+    </footer>
+
+    <!-- Include JavaScript files -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+
+<h2>Employee Evaluations</h2>
+{% for evaluation in evaluations %}
+    <p><strong>{{ evaluation.employee }}</strong>: {{ evaluation.response }}</p>
+{% endfor %}

@@ -20,6 +20,7 @@ from django.urls import path
 
 from django.urls import include
 from core.views import CustomLoginView, redirect_view
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [

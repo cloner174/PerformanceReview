@@ -15,11 +15,29 @@
         <nav>
             <ul>
                 {% block nav %}
-                <!-- Navigation links will go here -->
+                {% if user.is_authenticated %}
+                    {% if user.groups.filter(name='Senior Manager').exists %}
+                        <!-- Senior Manager Links -->
+                        <li><a href="{% url 'senior_manager:dashboard' %}">Dashboard</a></li>
+                        <!-- Other senior manager links -->
+                    {% elif user.groups.filter(name='Manager').exists %}
+                        <!-- Manager Links -->
+                        <li><a href="{% url 'manager:dashboard' %}">Dashboard</a></li>
+                        <!-- Other manager links -->
+                    {% elif user.groups.filter(name='Employee').exists %}
+                        <!-- Employee Links -->
+                        <li><a href="{% url 'employee:dashboard' %}">Dashboard</a></li>
+                        <!-- Other employee links -->
+                    {% endif %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
                 {% endblock %}
             </ul>
         </nav>
     </header>
+    {% include 'base_templates/notification_bar.html' %}
     <!---->
     <main>
         {% block content %}

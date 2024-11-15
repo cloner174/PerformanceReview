@@ -1,0 +1,10 @@
+{% extends 'base_templates/base.html' %}
+
+{% block title %}Manager Dashboard{% endblock %}
+
+{% block nav %}
+<li><a href="{% url 'manager:dashboard' %}">Dashboard</a></li>
+<li><a href="{% url 'manager:view_team' %}">View Team</a></li>
+<li><a href="{% url 'manager:evaluate_employees' %}">Evaluate Employees</a></li>
+<li><a href="{% url 'logout' %}">Logout</a></li>
+{% endblock %}

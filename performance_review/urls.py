@@ -17,6 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+
+from django.urls import include
+from core.views import CustomLoginView, redirect_view
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('login/', CustomLoginView.as_view(), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('redirect/', redirect_view, name='redirect'),
+    path('senior_manager/', include('senior_manager.urls')),
+    path('manager/', include('manager.urls')),
+    path('employee/', include('employee.urls')),
 ]
+
